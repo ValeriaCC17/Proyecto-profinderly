@@ -1,0 +1,14 @@
+  [
+  {
+    "id":712,
+"name": "Too Cute to Murder Beth",
+  "status": "Dead",
+  "species": "Robot",
+  "type": "Decoy",
+  "gender": "Female",
+  "Origin": {
+    "name": "Earth (Replacement Dimension)",
+    "url": "https://rickandmortyapi.com/api/location/20"
+  }
+  }
+  ]

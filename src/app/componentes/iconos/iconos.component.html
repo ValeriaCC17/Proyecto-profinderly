@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Categorías</h1>
+    </div>
+  </div>
+
+  <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Hogar</a>
+  </li>
+
+  @for (categoria of categorias; track $index) {
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="categoriaSeleccionada = categoria.id">
+        {{ categoria.name }}
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="categoriaSeleccionada = categoria.id">
+        <img
+          [src]="categoria.image"
+          alt="{{ categoria.name }}"
+          class="me-2"
+          style="width: 24px; height: 24px"
+        />
+        {{ categoria.name }}
+
+      <img
+        [src]="categoria.image"
+        alt="{{ categoria.name }}"
+        class="me-2"
+        style="width: 24px; height: 24px"
+      />
+      {{ categoria.id }}
+      {{ categoria.image }}
+      {{ categoria.status }}
+      {{ categoria.name }}
+
+      </a>
+    </li>
+  }
+</ul>
+</div>
