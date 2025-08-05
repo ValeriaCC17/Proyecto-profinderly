@@ -1,18 +1,47 @@
-
-<div class="container text-center">
+<div class="container text-center mt-5">
   <div class="row">
     <div class="col">
-      <img src="/assets/Imagenes/home.svg" alt=""
-            class="img-fluid" style="width: 100px; height: 100px;" >
+      <img src="/assets/Imagenes/home.svg" alt="home" class="img-fluid"
+           style="width: 100px; height: 100px; cursor: pointer;"
+           (click)="toggleInfo(0)">
+      <ul [class.d-none]="!showList[0]" class="info-list mt-2 text-start">
+        <li>Montaje</li>
+        <li>Limpieza</li>
+        <li>Electricidad</li>
+      </ul>
     </div>
+
     <div class="col">
-      <img src="/assets/Imagenes/paw.svg" alt=""class="img-fluid" style="width: 100px; height: 100px;" >
+      <img src="/assets/Imagenes/paw.svg" alt="paw" class="img-fluid"
+           style="width: 100px; height: 100px; cursor: pointer;"
+           (click)="toggleInfo(1)">
+      <ul [class.d-none]="!showList[1]" class="info-list mt-2 text-start">
+        <li>Paseo</li>
+        <li>Veterinario</li>
+        <li>Baño</li>
+      </ul>
     </div>
+
     <div class="col">
-      <img src="/assets/Imagenes/people.svg" alt=""class="img-fluid" style="width: 100px; height: 100px;" >
+      <img src="/assets/Imagenes/people.svg" alt="people" class="img-fluid"
+           style="width: 100px; height: 100px; cursor: pointer;"
+           (click)="toggleInfo(2)">
+      <ul [class.d-none]="!showList[2]" class="info-list mt-2 text-start">
+        <li>Cuidado de niños</li>
+        <li>Cuidado de adultos mayores</li>
+        <li>Apoyo escolar</li>
+      </ul>
     </div>
+
     <div class="col">
-      <img src="/assets/Imagenes/bag-add.svg" alt=""class="img-fluid" style="width: 100px; height: 100px;" >
+      <img src="/assets/Imagenes/bag-add.svg" alt="bag" class="img-fluid"
+           style="width: 100px; height: 100px; cursor: pointer;"
+           (click)="toggleInfo(3)">
+      <ul [class.d-none]="!showList[3]" class="info-list mt-2 text-start">
+        <li>Compras</li>
+        <li>Entrega</li>
+        <li>Asesoría</li>
+      </ul>
     </div>
   </div>
 </div>

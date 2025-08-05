@@ -1,31 +1,123 @@
-.texto_bienvenida {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  padding: 20px;
-  border-bottom: 10px solid #f4b803;
-}
 
-.imagen {
-  text-align: center;
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  /* Estilo para el contenedor principal */
+  .container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
 
-.imagen img {
-  width: 400px;
-  height: 180px;
-  border-radius: 20px;
-  object-fit: cover;
-}
+  /* Estilo para el texto de bienvenida */
+  .texto_bienvenida {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0a192f; /* Azul oscuro */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+  }
 
-.imagen:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
+  .texto_bienvenida::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #FF6B35, #004E89); /* Degradado naranja a azul */
+    border-radius: 2px;
+  }
 
+  /* Estilo para la barra de búsqueda */
+  .Buscar input {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .Buscar input:focus {
+    border-color: #004E89; /* Azul */
+    box-shadow: 0 0 0 3px rgba(0, 78, 137, 0.1);
+  }
+
+  .Buscar input::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+  }
+
+  /* Estilo para la imagen */
+  .imagen {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease;
+  }
+
+  .imagen:hover {
+    transform: translateY(-5px);
+  }
+
+  .imagen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(0, 78, 137, 0.1) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .imagen img {
+    display: block;
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .imagen:hover img {
+    transform: scale(1.02);
+  }
+
+  /* Efecto de esquina decorativa */
+  .imagen::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, transparent 0%, transparent 50%, #FF6B35 50%, #004E89 100%);
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    z-index: 2;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .texto_bienvenida {
+      font-size: 2rem;
+    }
+    
+    .flex.justify-end {
+      justify-content: center !important;
+      margin-right: 0 !important;
+    }
+    
+    .Buscar {
+      width: 100%;
+      padding: 0 1rem;
+    }
+    
+    .imagen::after {
+      width: 40px;
+      height: 40px;
+    }
+  }

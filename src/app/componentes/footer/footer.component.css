@@ -1,0 +1,81 @@
+
+  footer {
+    font-family: 'Poppins', sans-serif;
+    background: #0a192f; /* Azul oscuro */
+    padding: 2rem 0 1rem;
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  h2 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  footer p, footer li {
+    color: #ccd6f6;
+    margin-bottom: 0.5rem;
+  }
+
+  footer a {
+    color: #a8b2d1;
+    transition: color 0.2s;
+    display: block;
+    padding: 0.2rem 0;
+  }
+
+  footer a:hover {
+    color: #FF6B35; /* Naranja */
+  }
+
+  .flex {
+    margin-top: 0.5rem;
+  }
+
+  .flex a {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+    background: rgba(0, 78, 137, 0.7); /* Azul */
+    color: white !important;
+    margin-right: 0.5rem;
+  }
+
+  .flex a:hover {
+    background: #FF6B35; /* Naranja */
+  }
+
+  .border-t {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 1.5rem 0;
+    }
+    
+    .grid > div {
+      margin-bottom: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 1.2rem;
+    }
+  }

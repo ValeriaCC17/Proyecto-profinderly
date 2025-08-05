@@ -8,9 +8,18 @@ import { Component } from '@angular/core';
   styleUrl: './categorias.component.css'
 })
 export class CategoriasComponent {
-categoriasVisibles = [false, false, false, false];
+// Información por cada imagen
+  infoLists: string[][] = [
+    ['Dirección', 'Teléfono', 'Correo'],
+    ['Tipo de mascota', 'Edad', 'Raza'],
+    ['Nombre', 'Edad', 'Rol'],
+    ['Producto', 'Precio', 'Cantidad']
+  ];
 
-  toggleCategorias(index: number): void {
-    this.categoriasVisibles[index] = !this.categoriasVisibles[index];
+  // Controla visibilidad de cada lista
+  showList: boolean[] = [false, false, false, false];
+
+  toggleInfo(index: number): void {
+    this.showList[index] = !this.showList[index];
   }
 }
