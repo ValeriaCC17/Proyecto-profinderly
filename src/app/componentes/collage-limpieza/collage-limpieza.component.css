@@ -1,0 +1,73 @@
+.resena-box {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+}
+
+.resena-icono {
+  font-size: 28px;
+  background-color: #f0f0f0;
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: relative;
+}
+
+.resena-contenido {
+  flex: 1;
+}
+
+.titulo {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.descripcion {
+  font-size: 14px;
+  margin: 0;
+  color: #666;
+}
+
+.resena-calificacion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.puntuacion {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.puntuacion strong {
+  font-size: 18px;
+  color: #333;
+}
+
+.estrellas {
+  color: #FF385C;
+  font-size: 14px;
+}
+
+.resenas {
+  text-align: right;
+}
+
+.resenas strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.resenas span {
+  font-size: 12px;
+  color: #999;
+}

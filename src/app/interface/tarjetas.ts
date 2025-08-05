@@ -3,4 +3,5 @@ export interface Tarjeta {
   name: string;
   status: string;
   image: string;
+  
 }

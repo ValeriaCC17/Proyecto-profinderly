@@ -5,9 +5,10 @@
            style="width: 100px; height: 100px; cursor: pointer;"
            (click)="toggleInfo(0)">
       <ul [class.d-none]="!showList[0]" class="info-list mt-2 text-start">
-        <li>Montaje</li>
-        <li>Limpieza</li>
-        <li>Electricidad</li>
+        <li (click)="ir('hogar')">Limpieza</li>
+        <li>Organización</li>
+        <li>Mantenimiento y reparaciones</li>
+        <li>Jardineria</li>
       </ul>
     </div>
 
@@ -16,7 +17,8 @@
            style="width: 100px; height: 100px; cursor: pointer;"
            (click)="toggleInfo(1)">
       <ul [class.d-none]="!showList[1]" class="info-list mt-2 text-start">
-        <li>Paseo</li>
+        <li>
+          <a></a>Paseo</li>
         <li>Veterinario</li>
         <li>Baño</li>
       </ul>

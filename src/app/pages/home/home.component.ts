@@ -7,7 +7,7 @@ import { CategoriasComponent } from "../../componentes/categorias/categorias.com
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ImagenComponent, CategoriasComponent],
+  imports: [ImagenComponent, CategoriasComponent, IconosComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -1,44 +1,43 @@
-<div class="container">
+<div class="container mt-4">
+  <h2>Personajes de esta ubicación</h2>
+
   <div class="row">
-    <div class="col-md-12">
-      <h1>Categorías</h1>
-    </div>
+    @for (categoria of categorias; track categoria.id) {
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ categoria.name }}</h5>
+            <p class="card-text" (click)="mostrarResidentes(categoria.residents)" style="cursor: pointer">
+              Mostrar Residentes
+            </p>
+            <ul>
+              <li>Tipo: {{ categoria.type }}</li>
+              <li>Dimensión: {{ categoria.dimension }}</li>
+              <li>Residentes: {{ categoria.residents.length }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    }
   </div>
 
-  <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Hogar</a>
-  </li>
-
-  @for (categoria of categorias; track $index) {
-    <li class="nav-item">
-      <a class="nav-link" href="#" (click)="categoriaSeleccionada = categoria.id">
-        {{ categoria.name }}
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" (click)="categoriaSeleccionada = categoria.id">
-        <img
-          [src]="categoria.image"
-          alt="{{ categoria.name }}"
-          class="me-2"
-          style="width: 24px; height: 24px"
-        />
-        {{ categoria.name }}
-
-      <img
-        [src]="categoria.image"
-        alt="{{ categoria.name }}"
-        class="me-2"
-        style="width: 24px; height: 24px"
-      />
-      {{ categoria.id }}
-      {{ categoria.image }}
-      {{ categoria.status }}
-      {{ categoria.name }}
-
-      </a>
-    </li>
+  @if (residents.length > 0) {
+    <div class="row mt-4">
+      <h3>Residentes:</h3>
+      @for (personaje of residents; track personaje.id) {
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img [src]="personaje.image" class="card-img-top" [alt]="personaje.name" />
+            <div class="card-body">
+              <h5>{{ personaje.name }}</h5>
+              <p>Status: {{ personaje.status }}</p>
+              <p>Species: {{ personaje.image }}</p>
+              <p>Location: {{ personaje.name }}</p>
+              <p>image:{{personaje.id}}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
   }
-</ul>
 </div>
