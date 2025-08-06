@@ -1,23 +1,35 @@
+<!-- Contenedor principal -->
+<div class="container mt-5">
+  <div class="row">
 
-<div class="flex justify-end mt-4 mr-8">
-  <div class="Buscar">
-    <input
-      type="text"
-      placeholder="Buscar servicios..."
-      class="w-full max-w-md px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
-    >
+    <!-- Columna izquierda: Carrusel -->
+    <div class="col-md-9">
+      <div id="publicidadCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+        <!-- Imágenes del carrusel -->
+        <div class="carousel-inner rounded-5 border border-2 border-black shadow-sm">
+          @for (imagen of residents; track $index) {
+            <div class="carousel-item" [class.active]="$index === 0">
+              <img [src]="imagen.image" class=" w-100"
+                   style="height:500px; object-fit: cover;">
+            </div>
+          }
+        </div>
+
+        <!-- Indicadores horizontales -->
+        <div class="carousel-indicators-horizontal d-flex justify-content-center mt-3">
+          @for (imagen of residents; track $index) {
+            <button type="button" data-bs-target="#publicidadCarousel" [attr.data-bs-slide-to]="$index"
+                    [class.active]="$index === 0" class="indicator-horizontal mx-1"></button>
+          }
+        </div>
+
+      </div>
+    </div>
+<!-- colomuna a la drecha -->
+    <div class="col-md-3">
+      <app-categorias></app-categorias>
+    </div>
+
   </div>
-</div>
-
-
-<div class="container mx-auto p-4">
-  <h1 class="texto_bienvenida">Bienvenido a Profinderly</h1>
-
-  <section class="imagen mt-6">
-    <img
-      src="https://calvo.es/wp-content/uploads/2020/12/hogar-mas-sostenible.jpg"
-      alt="Imagen"
-      class="w-full h-auto object-cover rounded-lg"
-    >
-  </section>
 </div>

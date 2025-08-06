@@ -6,6 +6,8 @@ import { PromocionesComponent } from './pages/promociones/promociones.component'
 import { CardHogarComponent } from './componentes/card-hogar/card-hogar.component';
 import { CollageLimpiezaComponent } from './componentes/collage-limpieza/collage-limpieza.component';
 import { IconosComponent } from './componentes/iconos/iconos.component';
+import { RegistrarseComponent } from './componentes/registrarse/registrarse.component';
+import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion.component';
 
 export const routes: Routes = [
 
@@ -30,5 +32,11 @@ export const routes: Routes = [
   },
   {
     path: 'api',component:IconosComponent
+  },
+  {
+    path: 'registrar', component:RegistrarseComponent
+  },
+  {
+    path: 'inicio', component: InicioSesionComponent
   }
 ];

@@ -1,49 +1,68 @@
-<div class="container text-center mt-5">
-  <div class="row">
-    <div class="col">
-      <img src="/assets/Imagenes/home.svg" alt="home" class="img-fluid"
-           style="width: 100px; height: 100px; cursor: pointer;"
-           (click)="toggleInfo(0)">
-      <ul [class.d-none]="!showList[0]" class="info-list mt-2 text-start">
-        <li (click)="ir('hogar')">Limpieza</li>
-        <li>Organización</li>
-        <li>Mantenimiento y reparaciones</li>
-        <li>Jardineria</li>
-      </ul>
+<!-- ===== HUMANOS ===== -->
+<h1>Humanos</h1>
+<div class="d-flex overflow-auto gap-3 pb-2">
+  @for (human of humanos; track $index) {
+    <div class="card shadow-sm" style="min-width: 200px; border-radius: 8px;">
+      <img [src]="human.image" class="card-img-top" [alt]="human.name"
+           style="height: 180px; object-fit: cover; cursor: pointer;"
+           (click)="toggleInfo($index)">
+      <div class="card-body text-center p-2">
+        <h6 class="card-title fw-bold mb-2">{{ human.name }}</h6>
+        @if (showInfo[$index]) {
+          <ul class="mt-2 small text-start list-unstyled ps-2">
+            <li><strong>Ubicación:</strong> {{ human.location.name }}</li>
+            <li><strong>Especie:</strong> {{ human.species }}</li>
+            <li><strong>Status:</strong> {{ human.status }}</li>
+            <li><strong>Episodio:</strong> {{ human.episodio?.air_date }}</li>
+          </ul>
+        }
+      </div>
     </div>
+  }
+</div>
 
-    <div class="col">
-      <img src="/assets/Imagenes/paw.svg" alt="paw" class="img-fluid"
-           style="width: 100px; height: 100px; cursor: pointer;"
-           (click)="toggleInfo(1)">
-      <ul [class.d-none]="!showList[1]" class="info-list mt-2 text-start">
-        <li>
-          <a></a>Paseo</li>
-        <li>Veterinario</li>
-        <li>Baño</li>
-      </ul>
+<!-- ===== ALIENS ===== -->
+<h1>Aliens</h1>
+<div class="d-flex overflow-auto gap-3 pb-2">
+  @for (alien of aliens; track $index) {
+    <div class="card shadow-sm" style="min-width: 200px; border-radius: 8px;">
+      <img [src]="alien.image" class="card-img-top" [alt]="alien.name"
+           style="height: 180px; object-fit: cover; cursor: pointer;"
+           (click)="toggleInfo($index)">
+      <div class="card-body text-center p-2">
+        <h6 class="card-title fw-bold mb-2">{{ alien.name }}</h6>
+        @if (showInfo[$index]) {
+          <ul class="mt-2 small text-start list-unstyled ps-2">
+            <li><strong>Ubicación:</strong> {{ alien.location.name }}</li>
+            <li><strong>Especie:</strong> {{ alien.species }}</li>
+            <li><strong>Status:</strong> {{ alien.status }}</li>
+            <li><strong>Episodio:</strong> {{ alien.episodio?.air_date }}</li>
+          </ul>
+        }
+      </div>
     </div>
+  }
+</div>
 
-    <div class="col">
-      <img src="/assets/Imagenes/people.svg" alt="people" class="img-fluid"
-           style="width: 100px; height: 100px; cursor: pointer;"
-           (click)="toggleInfo(2)">
-      <ul [class.d-none]="!showList[2]" class="info-list mt-2 text-start">
-        <li>Cuidado de niños</li>
-        <li>Cuidado de adultos mayores</li>
-        <li>Apoyo escolar</li>
-      </ul>
+<!-- ===== ROBOTS ===== -->
+<h1>Robots</h1>
+<div class="d-flex overflow-auto gap-3 pb-2">
+  @for (robot of robots; track $index) {
+    <div class="card shadow-sm" style="min-width: 200px; border-radius: 8px;">
+      <img [src]="robot.image" class="card-img-top" [alt]="robot.name"
+           style="height: 180px; object-fit: cover; cursor: pointer;"
+           (click)="toggleInfo($index)">
+      <div class="card-body text-center p-2">
+        <h6 class="card-title fw-bold mb-2">{{ robot.name }}</h6>
+        @if (showInfo[$index]) {
+          <ul class="mt-2 small text-start list-unstyled ps-2">
+            <li><strong>Ubicación:</strong> {{ robot.location.name }}</li>
+            <li><strong>Especie:</strong> {{ robot.species }}</li>
+            <li><strong>Status:</strong> {{ robot.status }}</li>
+            <li><strong>Episodio:</strong> {{ robot.episodio?.air_date }}</li>
+          </ul>
+        }
+      </div>
     </div>
-
-    <div class="col">
-      <img src="/assets/Imagenes/bag-add.svg" alt="bag" class="img-fluid"
-           style="width: 100px; height: 100px; cursor: pointer;"
-           (click)="toggleInfo(3)">
-      <ul [class.d-none]="!showList[3]" class="info-list mt-2 text-start">
-        <li>Compras</li>
-        <li>Entrega</li>
-        <li>Asesoría</li>
-      </ul>
-    </div>
-  </div>
+  }
 </div>

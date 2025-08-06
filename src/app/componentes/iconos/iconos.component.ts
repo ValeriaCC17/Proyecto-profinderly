@@ -35,19 +35,5 @@ export class IconosComponent implements OnInit {
 
 
 
-  /*mostrarPersonajes(urls: string[]) {
-    const urlsLimitadas = urls.slice(0, 3);
-    this.tarjetaServicio.obtenerPersonajesPorUrls(urlsLimitadas).subscribe(data => {
-      this.categoriaSeleccionada = data.map((tarjeta: Tarjeta) => ({
-        id: tarjeta.id,
-        name: tarjeta.name,
-        status: tarjeta.status,
-        image: tarjeta.image,
-        location: {
-          name: tarjeta.location.name,
-          url: tarjeta.location.url
-        }
-      }));
-    });
-  }*/
+ 
 

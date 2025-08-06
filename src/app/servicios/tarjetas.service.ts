@@ -20,4 +20,8 @@ export class TarjetasService {
     return forkJoin(urls.map(url => this.http.get<Tarjeta>(url)));
   }
 
+  obtenerEpisodio(url: string): Observable<any> {
+    return this.http.get<any>(url);
+  }
+
 }

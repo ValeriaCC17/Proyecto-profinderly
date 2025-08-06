@@ -1,95 +1,164 @@
+/* Barra de navegación principal */
+.navbar {
+  background: #ffffff; /* Fondo blanco para un look más limpio */
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #00bcd4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+  position: sticky; /* Hace que la navbar quede fija al hacer scroll si deseas */
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
 
-  nav {
-    background-color: #f4b271 !important;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding:5px;
-    font-family: 'Poppins', sans-serif;
+/* Contenedor para centrar y limitar el ancho */
+.navbar-container {
+  display: flex;
+  justify-content: right;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.navbar-logo img {
+  height: 50px; /* Un poco más grande para mayor presencia */
+  transition: transform 0.3s ease;
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  margin-right: 30px; /* Espacio entre el logo y los enlaces */
+  margin-top: auto; /* Alinea el logo verticalmente */
+  margin-bottom: auto; /* Alinea el logo verticalmente */
+  display: block; /* Asegura que el logo se comporte como un bloque */
+  width: auto; /* Permite que el logo mantenga su proporción */
+
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.05); /* Efecto de escala al pasar el cursor */
+}
+
+/* Botón de toggle en móvil (visible en responsive) */
+.navbar-toggle {
+  display: none; /* Actívalo en media queries para móvil */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Lista de navegación */
+.navbar-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estiliza el botón desplegable */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-toggle:hover {
+  background: #f0f0f0;
+  color: #00bcd4;
+}
+
+
+
+.dropdown-toggle:hover {
+  background: #f0f0f0; /* Fondo suave en hover */
+  color: #00bcd4; /* Cambio de color para énfasis */
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff; /* Fondo blanco para mejor legibilidad */
+  padding: 1rem;
+  border-radius: 6px;
+  min-width: 30px;
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Mostrar menú en hover */
+.navbar-item:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Botones de acción */
+.btn-register,
+.btn-login {
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+/* Registro */
+.btn-register {
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+  background: transparent;
+  padding: 0.75rem 1.5rem;
+  margin-top:auto ;
+  margin-right: 20px;
+}
+
+.btn-register:hover {
+  background: #00bcd4;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Login */
+.btn-login {
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-right: 10px;
+}
+
+.btn-login:hover {
+  background: #0097a7;
+  transform: scale(1.05);
+}
+
+/* Responsive: activar toggle en pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
   }
 
-  nav:hover {
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
-  }
-
-  .max-w-screen-xl {
-    max-width: 1280px;
-  }
-
-  .flex.items-center img {
-    transition: transform 0.3s ease;
-  }
-
-  .flex.items-center:hover img {
-    transform: scale(1.05);
-  }
-
-  button[data-collapse-toggle] {
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  button[data-collapse-toggle]:hover {
-    background-color: rgba(0, 78, 137, 0.1) !important;
-    border-color: rgba(0, 78, 137, 0.2);
-  }
-
-  #navbar-default ul {
-    gap: 0.5rem;
-  }
-
-  #navbar-default a {
-    color: #2d3748;
-    font-weight: 500;
-    position: relative;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  #navbar-default a:hover {
-    color: #004E89 !important;
-    background-color: transparent !important;
-  }
-
-  #navbar-default a::after {
-    content: '';
+  .navbar-list {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #FF6B35, #004E89);
-    transition: width 0.3s ease;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: none; /* Mostrar cuando esté activo */
   }
 
-  #navbar-default a:hover::after {
-    width: 70%;
+  /* Cuando esté abierto, mostrar la lista */
+  .navbar-list.open {
+    display: flex;
   }
-
-  #navbar-default a.router-link-active {
-    color: #004E89 !important;
-    font-weight: 600;
-  }
-
-  #navbar-default a.router-link-active::after {
-    width: 70%;
-  }
-
-  @media (max-width: 768px) {
-    #navbar-default {
-      background-color: #ffffff;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-top: 0.5rem;
-      padding: 1rem;
-    }
-
-    #navbar-default a {
-      padding: 0.75rem 1rem;
-      border-radius: 0.25rem;
-    }
-
-    #navbar-default a:hover {
-      background-color: rgba(0, 78, 137, 0.05) !important;
-    }
-  }
+}
