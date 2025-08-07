@@ -1,33 +1,40 @@
 <!-- Contenedor principal -->
-<div class="container mt-5">
-  <div class="row">
+<div class="container mt-4">
+  <div class="row flex-md-row flex-column align-items-md-center">
 
-    <!-- Columna izquierda: Carrusel -->
-    <div class="col-md-9">
-      <div id="publicidadCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <!-- COLUMNA IZQUIERDA: Carrusel vertical más grande y centrado -->
+    <div class="col-md-3 col-12 d-flex justify-content-center">
+      <div id="verticalCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="3000"
+           style="max-height: 600px; width: 100%;">
 
-        <!-- Imágenes del carrusel -->
-        <div class="carousel-inner rounded-5 border border-2 border-black shadow-sm">
+        <!-- Carrusel de imágenes vertical -->
+        <div class="carousel-inner rounded-4 border border-2 border-black shadow" style="height: 500px;">
           @for (imagen of residents; track $index) {
-            <div class="carousel-item" [class.active]="$index === 0">
-              <img [src]="imagen.image" class=" w-100"
-                   style="height:500px; object-fit: cover;">
+            <div class="carousel-item h-100" [class.active]="$index === 0">
+              <img [src]="imagen.image"
+                   class="d-block mx-auto"
+                   style="height: 100%; width: 100%; object-fit: cover;">
             </div>
           }
         </div>
 
-        <!-- Indicadores horizontales -->
-        <div class="carousel-indicators-horizontal d-flex justify-content-center mt-3">
+        <!-- Indicadores debajo (verticales) -->
+        <div class="d-flex flex-column align-items-center mt-3 gap-2">
           @for (imagen of residents; track $index) {
-            <button type="button" data-bs-target="#publicidadCarousel" [attr.data-bs-slide-to]="$index"
-                    [class.active]="$index === 0" class="indicator-horizontal mx-1"></button>
+            <button type="button"
+                    data-bs-target="#verticalCarousel"
+                    [attr.data-bs-slide-to]="$index"
+                    class="btn btn-sm rounded-circle border"
+                    [class.active]="$index === 0"
+                    style="width: 12px; height: 12px; padding: 0;"></button>
           }
         </div>
 
       </div>
     </div>
-<!-- colomuna a la drecha -->
-    <div class="col-md-3">
+
+    <!-- COLUMNA DERECHA: Tarjetas -->
+    <div class="col-md-9 col-12">
       <app-categorias></app-categorias>
     </div>
 

@@ -14,10 +14,10 @@ export interface Tarjeta {
     url: string;
   };
   image: string;
-  episode: string[]; // ✅
-  episodio?: {       // ✅ Agregado manualmente luego
+  episode: string[];
+  episodio?: {
     name_episodio: string;
     episode: string;
-    air_date: number;
+    air_date: string; // debe ser string, no number
   };
 }

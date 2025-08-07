@@ -5,10 +5,10 @@
     <div class="card shadow-sm" style="min-width: 200px; border-radius: 8px;">
       <img [src]="human.image" class="card-img-top" [alt]="human.name"
            style="height: 180px; object-fit: cover; cursor: pointer;"
-           (click)="toggleInfo($index)">
+           (click)="toggleInfo('humano', $index)">
       <div class="card-body text-center p-2">
         <h6 class="card-title fw-bold mb-2">{{ human.name }}</h6>
-        @if (showInfo[$index]) {
+        @if (showInfoHumanos[$index]) {
           <ul class="mt-2 small text-start list-unstyled ps-2">
             <li><strong>Ubicación:</strong> {{ human.location.name }}</li>
             <li><strong>Especie:</strong> {{ human.species }}</li>
@@ -28,10 +28,10 @@
     <div class="card shadow-sm" style="min-width: 200px; border-radius: 8px;">
       <img [src]="alien.image" class="card-img-top" [alt]="alien.name"
            style="height: 180px; object-fit: cover; cursor: pointer;"
-           (click)="toggleInfo($index)">
+           (click)="toggleInfo('alien', $index)">
       <div class="card-body text-center p-2">
         <h6 class="card-title fw-bold mb-2">{{ alien.name }}</h6>
-        @if (showInfo[$index]) {
+        @if (showInfoAliens[$index]) {
           <ul class="mt-2 small text-start list-unstyled ps-2">
             <li><strong>Ubicación:</strong> {{ alien.location.name }}</li>
             <li><strong>Especie:</strong> {{ alien.species }}</li>
@@ -51,10 +51,10 @@
     <div class="card shadow-sm" style="min-width: 200px; border-radius: 8px;">
       <img [src]="robot.image" class="card-img-top" [alt]="robot.name"
            style="height: 180px; object-fit: cover; cursor: pointer;"
-           (click)="toggleInfo($index)">
+           (click)="toggleInfo('robot', $index)">
       <div class="card-body text-center p-2">
         <h6 class="card-title fw-bold mb-2">{{ robot.name }}</h6>
-        @if (showInfo[$index]) {
+        @if (showInfoRobots[$index]) {
           <ul class="mt-2 small text-start list-unstyled ps-2">
             <li><strong>Ubicación:</strong> {{ robot.location.name }}</li>
             <li><strong>Especie:</strong> {{ robot.species }}</li>
