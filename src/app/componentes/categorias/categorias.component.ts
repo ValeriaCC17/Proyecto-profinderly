@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Tarjeta } from '../../interface/tarjetas';
 import { TarjetasService } from '../../servicios/tarjetas.service';
+import { CommonModule } from '@angular/common';
+import { InformacionListadoComponent } from '../informacion-listado/informacion-listado.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categorias',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, InformacionListadoComponent],
   templateUrl: './categorias.component.html',
   styleUrl: './categorias.component.css',
 })
@@ -14,39 +17,54 @@ export class CategoriasComponent implements OnInit {
   aliens: Tarjeta[] = [];
   robots: Tarjeta[] = [];
 
-  showInfoHumanos: boolean[] = [];
-  showInfoAliens: boolean[] = [];
-  showInfoRobots: boolean[] = [];
+  personajeSeleccionado: Tarjeta | null = null;
 
-  constructor(private tarjetaServicio: TarjetasService) {}
+  constructor(
+    private tarjetaServicio: TarjetasService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.tarjetaServicio.obtenerIconos().subscribe((data) => {
-      // Tomamos residentes de múltiples ubicaciones (hasta 5 ubicaciones)
       const urls = data.results
-        .slice(0, 5) // más de una ubicación
+        .slice(0, 5)
         .flatMap((loc: any) => loc.residents)
-        .slice(0, 50); // limita la cantidad total
+        .slice(0, 50);
 
-      this.tarjetaServicio.obtenerPersonajesPorUrls(urls).subscribe((respuestas: Tarjeta[]) => {
-        this.humanos = respuestas.filter(p => p.species === 'Human');
-        this.aliens = respuestas.filter(p => p.species === 'Alien');
-        this.robots = respuestas.filter(p => p.species === 'Robot');
-
-        this.showInfoHumanos = new Array(this.humanos.length).fill(false);
-        this.showInfoAliens = new Array(this.aliens.length).fill(false);
-        this.showInfoRobots = new Array(this.robots.length).fill(false);
-      });
+      this.tarjetaServicio
+        .obtenerPersonajesPorUrls(urls)
+        .subscribe((respuestas: Tarjeta[]) => {
+          this.humanos = respuestas.filter((p) => p.species === 'Human');
+          this.aliens = respuestas.filter((p) => p.species === 'Alien');
+          this.robots = respuestas.filter((p) => p.species === 'Robot');
+        });
     });
   }
 
   toggleInfo(tipo: 'humano' | 'alien' | 'robot', index: number): void {
     if (tipo === 'humano') {
-      this.showInfoHumanos[index] = !this.showInfoHumanos[index];
+      this.personajeSeleccionado = this.humanos[index];
     } else if (tipo === 'alien') {
-      this.showInfoAliens[index] = !this.showInfoAliens[index];
+      this.personajeSeleccionado = this.aliens[index];
     } else if (tipo === 'robot') {
-      this.showInfoRobots[index] = !this.showInfoRobots[index];
+      this.personajeSeleccionado = this.robots[index];
     }
   }
+   verDetalle(personaje: Tarjeta){
+    this.router.navigate(['informacion', personaje.id])
+   }
+
+   scrollLeft(id: string): void {
+  const container = document.getElementById(id);
+  if (container) {
+    container.scrollLeft -= 300;
+  }
+}
+
+scrollRight(id: string): void {
+  const container = document.getElementById(id);
+  if (container) {
+    container.scrollLeft += 300;
+  }
+}
 }

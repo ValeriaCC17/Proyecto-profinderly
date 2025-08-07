@@ -1,20 +1,47 @@
-.card {
-    transition: transform 0.2s;
-    border: 1px solid rgba(0,0,0,0.1) !important;
-  }
-  .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  .btn-sm {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-  }
-  .card-title {
-    font-size: 1rem;
-  }
+.scroll-container {
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
 
-  .card-body {
-    padding: 0.5rem;
-  }
+.carousel-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+  background-color: #eee;
+}
+
+.carousel-btn.start {
+  left: 0;
+}
+
+.carousel-btn.end {
+  right: 0;
+}
+
+/* Oculta scroll horizontal visual pero deja el desplazamiento funcionando */
+.scroll-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Edge */
+}
+
 

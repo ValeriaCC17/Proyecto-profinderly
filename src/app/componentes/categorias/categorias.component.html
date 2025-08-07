@@ -1,67 +1,63 @@
 <!-- ===== HUMANOS ===== -->
-<h1>Humanos</h1>
-<div class="d-flex overflow-auto gap-3 pb-2">
+<div class="d-flex align-items-center justify-content-between mb-2">
+  <div class="d-flex align-items-center gap-2">
+    <button class="btn btn-light btn-sm" (click)="scrollLeft('humanos')">‹</button>
+    <h1 class="m-0">Humanos</h1>
+  </div>
+  <button class="btn btn-light btn-sm" (click)="scrollRight('humanos')">›</button>
+</div>
+
+<!-- Contenedor con scroll oculto -->
+<div id="humanos" class="d-flex overflow-auto gap-3 pb-2 scroll-hidden">
   @for (human of humanos; track $index) {
     <div class="card shadow-sm" style="min-width: 200px; border-radius: 8px;">
       <img [src]="human.image" class="card-img-top" [alt]="human.name"
-           style="height: 180px; object-fit: cover; cursor: pointer;"
-           (click)="toggleInfo('humano', $index)">
+           style="height: 180px;" (click)="verDetalle(human)">
       <div class="card-body text-center p-2">
         <h6 class="card-title fw-bold mb-2">{{ human.name }}</h6>
-        @if (showInfoHumanos[$index]) {
-          <ul class="mt-2 small text-start list-unstyled ps-2">
-            <li><strong>Ubicación:</strong> {{ human.location.name }}</li>
-            <li><strong>Especie:</strong> {{ human.species }}</li>
-            <li><strong>Status:</strong> {{ human.status }}</li>
-            <li><strong>Episodio:</strong> {{ human.episodio?.air_date }}</li>
-          </ul>
-        }
       </div>
     </div>
   }
 </div>
 
+
 <!-- ===== ALIENS ===== -->
-<h1>Aliens</h1>
-<div class="d-flex overflow-auto gap-3 pb-2">
+<div class="d-flex align-items-center justify-content-between mb-2 mt-4">
+  <div class="d-flex align-items-center gap-2">
+    <button class="btn btn-light btn-sm" (click)="scrollLeft('aliens')">‹</button>
+    <h1 class="m-0">Aliens</h1>
+  </div>
+  <button class="btn btn-light btn-sm" (click)="scrollRight('aliens')">›</button>
+</div>
+<div id="aliens" class="d-flex overflow-auto gap-3 pb-2">
   @for (alien of aliens; track $index) {
     <div class="card shadow-sm" style="min-width: 200px; border-radius: 8px;">
       <img [src]="alien.image" class="card-img-top" [alt]="alien.name"
            style="height: 180px; object-fit: cover; cursor: pointer;"
-           (click)="toggleInfo('alien', $index)">
+           (click)="verDetalle(alien)">
       <div class="card-body text-center p-2">
         <h6 class="card-title fw-bold mb-2">{{ alien.name }}</h6>
-        @if (showInfoAliens[$index]) {
-          <ul class="mt-2 small text-start list-unstyled ps-2">
-            <li><strong>Ubicación:</strong> {{ alien.location.name }}</li>
-            <li><strong>Especie:</strong> {{ alien.species }}</li>
-            <li><strong>Status:</strong> {{ alien.status }}</li>
-            <li><strong>Episodio:</strong> {{ alien.episodio?.air_date }}</li>
-          </ul>
-        }
       </div>
     </div>
   }
 </div>
 
 <!-- ===== ROBOTS ===== -->
-<h1>Robots</h1>
-<div class="d-flex overflow-auto gap-3 pb-2">
+<div class="d-flex align-items-center justify-content-between mb-2 mt-4">
+  <div class="d-flex align-items-center gap-2">
+    <button class="btn btn-light btn-sm" (click)="scrollLeft('robots')">‹</button>
+    <h1 class="m-0">Robots</h1>
+  </div>
+  <button class="btn btn-light btn-sm" (click)="scrollRight('robots')">›</button>
+</div>
+<div id="robots" class="d-flex overflow-auto gap-3 pb-2">
   @for (robot of robots; track $index) {
     <div class="card shadow-sm" style="min-width: 200px; border-radius: 8px;">
       <img [src]="robot.image" class="card-img-top" [alt]="robot.name"
            style="height: 180px; object-fit: cover; cursor: pointer;"
-           (click)="toggleInfo('robot', $index)">
+           (click)="verDetalle(robot)">
       <div class="card-body text-center p-2">
         <h6 class="card-title fw-bold mb-2">{{ robot.name }}</h6>
-        @if (showInfoRobots[$index]) {
-          <ul class="mt-2 small text-start list-unstyled ps-2">
-            <li><strong>Ubicación:</strong> {{ robot.location.name }}</li>
-            <li><strong>Especie:</strong> {{ robot.species }}</li>
-            <li><strong>Status:</strong> {{ robot.status }}</li>
-            <li><strong>Episodio:</strong> {{ robot.episodio?.air_date }}</li>
-          </ul>
-        }
       </div>
     </div>
   }

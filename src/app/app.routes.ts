@@ -8,6 +8,7 @@ import { CollageLimpiezaComponent } from './componentes/collage-limpieza/collage
 import { IconosComponent } from './componentes/iconos/iconos.component';
 import { RegistrarseComponent } from './componentes/registrarse/registrarse.component';
 import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion.component';
+import { InformacionListadoComponent } from './componentes/informacion-listado/informacion-listado.component';
 
 export const routes: Routes = [
 
@@ -38,5 +39,8 @@ export const routes: Routes = [
   },
   {
     path: 'inicio', component: InicioSesionComponent
+  },
+  {
+    path: "informacion/:id", component: InformacionListadoComponent
   }
 ];

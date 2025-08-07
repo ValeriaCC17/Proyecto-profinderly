@@ -24,4 +24,12 @@ export class TarjetasService {
     return this.http.get<any>(url);
   }
 
+  /* se obtuvo el personaje por el id */
+  obtenerPersonajePorId(id: number): Observable<Tarjeta> {
+  return this.http.get<Tarjeta>(`https://rickandmortyapi.com/api/character/${id}`);
 }
+
+}
+
+
+

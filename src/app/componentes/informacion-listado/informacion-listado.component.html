@@ -1,0 +1,14 @@
+@if (personaje) {
+  <div class="container mt-4">
+    <h2 class="text-center">{{ personaje.name }}</h2>
+    <img [src]="personaje.image" [alt]="personaje.name"
+         class="img-fluid d-block mx-auto rounded shadow"
+         style="max-width: 300px;">
+    <ul class="mt-3 list-unstyled text-center">
+      <li><strong>Ubicación:</strong> {{ personaje.location?.name }}</li>
+      <li><strong>Especie:</strong> {{ personaje.species }}</li>
+      <li><strong>Status:</strong> {{ personaje.status }}</li>
+      <li><strong>Episodios:</strong> {{ personaje.episode?.length }}</li>
+    </ul>
+  </div>
+}
